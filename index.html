@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Cat's planner</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css?v=0401">
+</head>
+<body>
+  <div class="sky"></div>
+  <header>
+    <div>
+      <small>🐾 НАШЕ ПРОСТРАНСТВО</small>
+      <h1>Cat's planner</h1>
+    </div>
+    <button id="settings" aria-label="Настройки" class="icon-btn">⚙</button>
+  </header>
+
+  <main>
+    <div id="error" role="alert"></div>
+
+    <section id="home">
+      <div class="hero">
+        <div class="hero-badge">🌙</div>
+        <h2>Маленькие планы, большие мечты</h2>
+        <p>Ваше уютное пространство для планов, желаний и идей.</p>
+        <div id="summary" class="summary"></div>
+      </div>
+
+      <div class="section-head">
+        <h2>Наши списки</h2>
+        <button id="toggleHidden" class="link-btn" type="button">Показать скрытые</button>
+      </div>
+
+      <div id="categories" class="grid"></div>
+      <button id="newcat" class="secondary wide">＋ Своя категория</button>
+    </section>
+
+    <section id="list" hidden>
+      <button id="back" class="secondary">‹ Все списки</button>
+      <h2 id="listtitle"></h2>
+      <div class="filters">
+        <input id="search" placeholder="Поиск по записям">
+        <select id="filter">
+          <option value="active">Активные</option>
+          <option value="all">Все</option>
+          <option value="done">Выполненные</option>
+        </select>
+      </div>
+      <div id="items"></div>
+      <button id="add" class="wide">＋ Добавить запись</button>
+    </section>
+
+    <section id="calendar" hidden>
+      <div class="calendar-head">
+        <button class="secondary" id="prev">‹</button>
+        <strong id="month"></strong>
+        <button class="secondary" id="next">›</button>
+      </div>
+      <div id="days" class="days"></div>
+      <div id="events"></div>
+    </section>
+
+    <section id="stats" hidden>
+      <h2>Наши достижения</h2>
+      <div id="statistics"></div>
+    </section>
+  </main>
+
+  <nav>
+    <button data-page="home">🏠<span>Главная</span></button>
+    <button data-page="calendar">📅<span>Календарь</span></button>
+    <button data-page="stats">📊<span>Статистика</span></button>
+  </nav>
+
+  <dialog id="editor">
+    <form id="editform">
+      <h2 id="editheading">Запись</h2>
+      <label>Название<input name="title" required maxlength="200"></label>
+      <label>Категория<select name="category"></select></label>
+      <label>Описание<textarea name="notes" rows="3" maxlength="4000"></textarea></label>
+      <label>Ссылка<input name="link" type="url" placeholder="https://"></label>
+      <label>Дата / срок<input name="due" type="datetime-local"></label>
+      <label>Напомнить<input name="reminder" type="datetime-local"></label>
+      <label>Ответственный
+        <select name="assignee">
+          <option value="both">Вместе</option>
+          <option value="owner">Автор записи</option>
+          <option value="partner">Партнёр автора</option>
+        </select>
+      </label>
+      <label>Приоритет
+        <select name="priority">
+          <option value="normal">Обычный</option>
+          <option value="high">Высокий</option>
+          <option value="low">Низкий</option>
+        </select>
+      </label>
+      <label class="check"><input name="private" type="checkbox"> 🔒 Только мне (сюрприз)</label>
+      <label class="check"><input name="done" type="checkbox"> Выполнено</label>
+      <button class="wide" type="submit">Сохранить</button>
+      <button class="secondary wide" type="button" id="cancel">Отмена</button>
+    </form>
+  </dialog>
+
+  <dialog id="categoryDialog">
+    <form id="categoryForm">
+      <h2 id="catHeading">Категория</h2>
+      <input type="hidden" name="id">
+      <label>Название<input name="name" required maxlength="60" placeholder="Например: Наши фильмы"></label>
+      <div class="row2">
+        <label>Значок<input name="icon" maxlength="8" placeholder="🎬"></label>
+        <label>Цвет<input name="color" type="color" value="#8b6fbf"></label>
+      </div>
+      <label class="check"><input name="archived" type="checkbox"> Скрыть категорию с главной страницы</label>
+      <div class="section note" id="catMeta"></div>
+      <div class="row2">
+        <button class="secondary" type="button" id="moveUp">↑ Выше</button>
+        <button class="secondary" type="button" id="moveDown">↓ Ниже</button>
+      </div>
+      <div id="transferWrap" hidden>
+        <label>Перед удалением перенести записи в:
+          <select name="transferTo"></select>
+        </label>
+      </div>
+      <button class="wide" type="submit">Сохранить</button>
+      <button class="danger wide" type="button" id="deleteCategory">Удалить категорию</button>
+      <button class="secondary wide" type="button" id="cancelCategory">Отмена</button>
+    </form>
+  </dialog>
+
+  <dialog id="prefs">
+    <h2>Настройки</h2>
+    <label class="check"><input id="notify" type="checkbox"> Уведомления и напоминания</label>
+    <p>Время событий отображается в часовом поясе устройства.</p>
+    <button id="closeprefs" class="wide">Закрыть</button>
+  </dialog>
+
+  <script src="config.js?v=0401"></script>
+  <script src="app.js?v=0401"></script>
+</body>
+</html>
