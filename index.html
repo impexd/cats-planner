@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta name="planner-version" content="1.1.3-rc.4">
+  <meta name="planner-version" content="1.2.0">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Cat's Planner</title>
@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="assets/planner-icon-180.png">
   <link rel="icon" type="image/png" href="assets/planner-icon-192.png">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link rel="stylesheet" href="style.css?v=113rc4">
+  <link rel="stylesheet" href="style.css?v=120">
 </head>
 <body>
   <div class="sky"></div>
@@ -38,7 +38,7 @@
         <div class="category-tools"><button id="toggleHidden" class="icon-btn clean-icon" type="button" aria-label="Показать скрытые категории"></button><button id="layoutToggle" class="icon-btn layout-toggle" type="button" aria-label="Переключить вид категорий" title="Переключить вид категорий">▦</button></div>
       </div>
 
-      
+
       <div id="categories" class="grid"></div>
       <button id="newcat" class="secondary wide">＋ Своя категория</button></div>
     </section>
@@ -155,8 +155,8 @@
   <dialog id="dateDialog"><form id="dateForm"><h2>Важная дата</h2><label>Название<input name="title" maxlength="120" required></label><label>Дата<input name="event_date" type="date" required></label><label class="check"><input name="annual" type="checkbox" checked> Каждый год</label><button type="submit" class="wide">Сохранить</button><button id="deleteDate" type="button" class="danger wide">Удалить</button><button id="closeDate" type="button" class="secondary wide">Отмена</button></form></dialog>
   <dialog id="backupDialog"><h2>Резервная копия</h2><p>Если скачивание не поддерживается, скопируйте содержимое в текстовый файл.</p><textarea id="backupText" readonly rows="6"></textarea><button id="downloadBackup" class="wide">Скачать JSON</button><button id="closeBackup" class="secondary wide">Закрыть</button></dialog>
   <dialog id="coupleDialog"><form id="coupleForm"><div class="editor-heading"><h2>Моя главная и бот</h2><button id="closeCoupleTop" class="secondary editor-close" type="button" aria-label="Закрыть настройки виджетов">×</button></div><p class="meta">Настройки только для твоего аккаунта.</p><div id="widgetOrder"></div><label>Характер напоминаний<select name="tone"><option value="care">💕 Заботливый</option><option value="meme">🤡 Мемный</option><option value="sarcasm">😏 Лёгкий сарказм</option><option value="plain">📋 Обычный</option></select></label><label class="check"><input name="notify_reminders" type="checkbox"> Напоминания о делах</label><label class="check"><input name="notify_updates" type="checkbox"> Изменения общих записей</label><label>Тихие часы: с<input name="quiet_start" type="time"></label><label>До<input name="quiet_end" type="time"></label><p class="meta">Оставь оба поля пустыми, чтобы отключить тихие часы. Часовой пояс устройства.</p><button type="submit" class="wide">Сохранить</button><button id="closeCoupleSettings" type="button" class="secondary wide">Отмена</button></form></dialog>
-  <dialog id="updatesDialog"><div class="editor-heading"><h2>История обновлений</h2><button id="closeUpdates" class="secondary editor-close" type="button" aria-label="Закрыть">×</button></div><div id="updateRows"></div></dialog><dialog id="libraryDialog"><div class="editor-heading"><h2 id="libraryTitle"></h2><button type="button" id="closeLibrary" class="secondary editor-close" aria-label="Закрыть">×</button></div><div id="libraryRows"></div></dialog><script src="config.js?v=113rc4"></script>
-  <script src="standalone.js?v=113rc4"></script>
-  <script src="app.js?v=113rc4-1"></script>
+  <dialog id="updatesDialog"><div class="editor-heading"><h2>История обновлений</h2><button id="closeUpdates" class="secondary editor-close" type="button" aria-label="Закрыть">×</button></div><div id="updateRows"></div></dialog><dialog id="libraryDialog"><div class="editor-heading"><h2 id="libraryTitle"></h2><button type="button" id="closeLibrary" class="secondary editor-close" aria-label="Закрыть">×</button></div><div id="libraryRows"></div></dialog><script src="config.js?v=120"></script>
+  <script src="standalone.js?v=120"></script>
+  <script src="app.js?v=120"></script>
 </body>
 </html>
